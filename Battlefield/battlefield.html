@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="battlefield.css">
+</head>
+<body>
+    <audio id="battle-music" src="../Sounds/BattleMusic.mp3"></audio>
+    <audio id="menu-select" src="../Sounds/MenuSelect.wav"></audio>
+    <audio id="hit" src="../Sounds/Hit.wav"></audio>
+    <audio id="enemy-hit" src="../Sounds/EnemyHit.wav"></audio>
+    <audio id="victory" src="../Sounds/Victory.mp3"></audio>
+
+    <img id="battlefield" src="../Sprites/battlefield.png" alt="">
+    <div id="hero">
+        <img id="sprite" src="../Sprites/Hero.png" alt="Cannot load">
+        <progress id="hero-healthbar" value="100" max="100"></progress>
+    </div>
+    <div id="monsters">
+        <img id = "monster1" src="../Sprites/monster.png" alt="Sorry">
+        <progress id="monster-healthbar" value="100" max="100"></progress>
+    </div>
+    <div id="bottom-bar">
+        <div id="seperator"></div>
+    </div>
+    <div id = "win-modal">
+        <div id="next-lvl"><a href="battlefield.html">Next level</a></div>
+    </div>
+    <script src="battlefield.js"></script>    
+</body>
+</html>
