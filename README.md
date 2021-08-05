@@ -7,7 +7,7 @@ An FF6-inspired RPG created using DOM manipulation with HTML via vanilla JS.
 This project is purely written in HTML, CSS and Vanilla JS. Artwork was created as well as received through the internet.
 
 ## Livesite link
-[Feudal Insanity Livesite link](https://lmarin1197.github.io/Untitled_Game/TitleScreen/titlescreen.html)
+[Feudal Insanity Livesite link](https://lmarin1197.github.io/Feudal-Insanity/TitleScreen/titlescreen.html)
 
 ## Problems/Hurdles
 Getting the audio to work properly was a major issue, as there is some audio autoplay restrictions with chrome.
