@@ -1,11 +1,11 @@
 menuMusic = document.querySelector("#menu-music")
 startButtonSoundLoc = document.querySelector("#start-button")
 startSound = document.querySelector("#start-sound")
+menuMusicEnable = document.querySelector("#game-title")
 
 //menu music
 menuMusic.loop = true;
 menuMusic.volume = .20;
-menuMusic.play();
 
 startSound.volume = .20;
 
@@ -20,3 +20,6 @@ const startClick = () => {
     startButtonSoundLoc.style.color = "blue";
     window.open("../Battlefield/battlefield.html" , '_self');
 }
+menuMusicEnable.addEventListener("click" , () =>{
+    menuMusic.play();
+})

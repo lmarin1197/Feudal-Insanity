@@ -12,18 +12,18 @@
 
 #hero{
     position: absolute;  
-    left: 3%;
-    top: 54%;
+    left: 1%;
+    top: 51%;
 }
 #hero #sprite{ 
-    width: 23%;
+    width: 230%;
 }
 #hero #hero-healthbar{
     appearance: none;
     position: absolute;
-    right: 78%;
-    bottom: 115%;
-    width: 20%;
+    left: 32%;
+    bottom: 90%;
+    width: 140%;
     height: 10%;
     margin: 0;
     padding: 0;
@@ -86,25 +86,30 @@
     display: none;
     position: fixed;
     width: 40%;
-    height: 50%;
+    height: 35%;
     left: 30%;
     top: 15%;
-    background-color: rgb(32, 31, 143); /* Fallback color */
-    background-color: rgba(0,0,0,.9); /* Black w/ opacity */
+    background-color: rgba(32, 31, 143 , 0.6);
 }
+
 /* Move on to next level */
-#next-lvl {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+#win-message{
+    margin-top: 10%;
+    margin-bottom: 0%;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 140%;
+    font-family: ff2;
+    color: rgb(219, 219, 217);
+}
+#next-lvl{
+    font-family: ff2;
+    text-align: center;
+    margin-top: 8%;
+    font-size: 200%;
     font-weight: bold;
 }
-#next-lvl:hover,
-#next-lvl:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
+
 #bottom-bar{
     position: fixed;
     box-shadow: 0 0 5px 5px rgb(0, 0, 36), 0 0 0 8px rgb(219, 219, 217), 0 0 5px 12px rgb(0, 0, 0);

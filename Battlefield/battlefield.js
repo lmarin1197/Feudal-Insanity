@@ -10,11 +10,11 @@ menuSelect.volume = .50
 
 //hit sound
 hitSound = document.querySelector("#hit")
-hitSound.volume = .50
+hitSound.volume = .30
 
 //enemy hit sound
 enemyHit = document.querySelector("#enemy-hit")
-enemyHit.volume = .50
+enemyHit.volume = .30
 
 //victory music
 victorySong = document.querySelector("#victory")
@@ -75,7 +75,7 @@ function hitEnemy(){
             battleMusic.pause();
             victorySong.play();
             enemy.alive = false;
-            monsterHealthbar.remove()
+            monsterHealthbar.remove()      
             //open modaL
             // winModal.style.transition = "all 20s"; //fade in (not working)
             winModal.style.display = "block";
@@ -84,7 +84,7 @@ function hitEnemy(){
             return;
         }
         console.log(`Enemy health: ${enemy.health}`);
-        setTimeout(hitPlayer , 1000)
+        setTimeout(hitPlayer , 100)
     }
     repeatClick = true;
 }
