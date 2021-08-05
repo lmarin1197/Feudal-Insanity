@@ -84,7 +84,7 @@ function hitEnemy(){
             return;
         }
         console.log(`Enemy health: ${enemy.health}`);
-        setTimeout(hitPlayer , 100)
+        setTimeout(hitPlayer , 1000)
     }
     repeatClick = true;
 }
