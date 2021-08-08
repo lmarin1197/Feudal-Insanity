@@ -37,11 +37,44 @@ hpPotion.setAttribute("id" , "health-potion")
 hpPotion.innerHTML = "HP Potion"
 moveLoc.appendChild(hpPotion)
 
+//monsters
+monsterContainer = document.querySelector("#monster-container")
+monsterLimit = 4
+monsterAmount = Math.floor(Math.random() * monsterLimit + 1)
+monsters = []
+monsterLoc = []
+
+for(let i = 0 ; i < monsterAmount ; i++){
+    //creates monster sprite div
+    monsters.push(document.createElement("div"))
+    monsters[i].setAttribute("class" , "monster-sprite")
+    monsterContainer.appendChild(monsters[i])   
+    
+    //creates the progress tag inside of the monster sprite div
+    monsters[i] = document.createElement("progress")
+    // monsters[i].setAttribute("id" , `monster-healthbar${i}`)
+    monsters[i].setAttribute("id" , `monster-healthbar`)
+    monsters[i].setAttribute("value" , "100")
+    monsters[i].setAttribute("max" , "100")
+    document.querySelectorAll(".monster-sprite")[i].appendChild(monsters[i])
+
+    //creates the img tag inside of the monster sprite div
+    monsters[i] = document.createElement("img")
+    monsters[i].setAttribute("class" , "monster-selector")
+    monsters[i].setAttribute("src" , "../Sprites/monster.png")
+    monsters[i].setAttribute("alt" , "Sorry")
+    document.querySelectorAll(".monster-sprite")[i].appendChild(monsters[i])
+
+    monsterLoc.push(document.querySelectorAll(".monster-selector")[i])
+    //sets the array to null in order to access said array later
+    monsters[i] = null
+}
+//console.log(monsterLoc)
 //hero healthbar
 heroHealthbar = document.querySelector("#hero-healthbar")
 
 //monster healthbar
-monsterHealthbar = document.querySelector("#monster-healthbar")
+monsterHealthbar = document.querySelectorAll("#monster-healthbar")
 
 //win modal
 winModal = document.querySelector("#win-modal")
@@ -55,11 +88,33 @@ player = {
     strength: 10,
     health: 100,
 }
+
 enemy = {
     health: 100,
     strength: 5,
     isHealer: false,
-    alive: true
+    alive: true,
+}
+//sets the monsters array's value to the "enemy" object
+for(let i = 0 ; i < monsters.length ; i++){
+    monsters[i] = {
+        health: 100,
+        strength: 5,
+        isHealer: false,
+        alive: true,
+    }
+    monsterLoc[i].addEventListener("click" , monsterSelect)
+}
+
+function monsterSelect(e){
+    menuSelect.play();
+    monsterLoc.forEach(element => {
+        element.clicked = false
+        console.log(element)
+        element.style.backgroundColor = "transparent";
+    });
+    e.target.style.backgroundColor = "blue";
+    e.target.clicked = true
 }
 
 function hitEnemy(){
@@ -67,23 +122,28 @@ function hitEnemy(){
     
     if(repeatClick == false){
         hitSound.play();    
-        enemy.health -= player.strength;
-        monsterHealthbar.value = enemy.health
+        //takes health away from the currently selected monster
+        for(let i = 0 ; i < monsters.length ; i++){
+            if(monsterLoc[i].clicked == true){
+                monsters[i].health -= player.strength;
+                monsterHealthbar[i].value = monsters[i].health;
+            }
+        }
 
-        //checks to see if enemy(s) dead
-        if(enemy.health <= 0){
+        // checks to see if enemy(s) dead
+        if(monsters.every((status) => status.health <= 0)){
             battleMusic.pause();
             victorySong.play();
-            enemy.alive = false;
-            monsterHealthbar.remove()      
+            // enemy.alive = false;
+            // monsterHealthbar.remove()      
             //open modaL
             // winModal.style.transition = "all 20s"; //fade in (not working)
             winModal.style.display = "block";
             hpPotion.removeEventListener("click" , heal);
             attack.removeEventListener("click")
-            return;
-        }
-        console.log(`Enemy health: ${enemy.health}`);
+            return;            
+        }      
+        
         setTimeout(hitPlayer , 1000)
     }
     repeatClick = true;

@@ -16,6 +16,7 @@
     top: 51%;
 }
 #hero #sprite{ 
+    margin: 10% 0 0 0;
     width: 230%;
 }
 #hero #hero-healthbar{
@@ -35,28 +36,33 @@
     background-color: rgb(26, 184, 3)
 }
 
-#monsters{  
+#monster-container{  
     position: absolute;
-    left: 92%;
-    top: 50.6%;
+    display: flex;
+    flex-direction: row-reverse;
+    /* background-color: aqua; */
+    left: 85%;
+    top: 52%;
+    height: 16%;
+    width: 15%;
 }
-#monsters #monster1{
-    width: 120%;
+.monster-sprite{
+    margin: 0 10% 0 10%;
 }
-#monsters #monster-healthbar{
+progress{
     appearance: none;
-    position: absolute;
-    right: -5%;
-    bottom: 106%;
-    width: 130%;
+    position: relative;
+    right: 12%;
+    bottom: 5%;
+    width: 90%;
     height: 7%;
     margin: 0;
     padding: 0;
 }
-#monsters #monster-healthbar::-webkit-progress-bar{
+progress::-webkit-progress-bar{
     background-color: crimson;
 }
-#monsters #monster-healthbar::-webkit-progress-value{
+progress::-webkit-progress-value{
     background-color: rgb(34, 177, 76)
 }
 
