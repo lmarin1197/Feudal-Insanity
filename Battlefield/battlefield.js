@@ -44,6 +44,7 @@ monsterAmount = Math.floor(Math.random() * monsterLimit + 1)
 monsters = []
 monsterLoc = []
 
+//arrowSelector = document.createElement("")
 for(let i = 0 ; i < monsterAmount ; i++){
     //creates monster sprite div
     monsters.push(document.createElement("div"))
@@ -172,4 +173,21 @@ function hitPlayer(){
 }
 hpPotion.addEventListener("click" , heal)
 attack.addEventListener("click" , hitEnemy)
-
+// for(let i = 0 ; i < monsterLoc.length ; i++){
+//     monsterLoc[i].addEventListener("mouseover" , () => {
+//         console.log("gi")
+//         monsterLoc[i].style.opacity = "10";
+//     })    
+// }
+monsterLoc.forEach((e) =>{
+    e.addEventListener("mouseover" , () => {
+        console.log("gi")
+        e.style.opacity = ".60";
+        e.style.backgroundColor = "white"
+    })
+    e.addEventListener("mouseout" , () => {
+        console.log("gi")
+        e.style.opacity = "1";
+        e.style.backgroundColor = "transparent"
+    })
+})
